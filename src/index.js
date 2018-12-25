@@ -6,6 +6,7 @@ import {
   ListItem as PokemonListItem,
   Detail as PokemonDetail,
   ListFallback as PokemonListFallback,
+  DetailFallback as PokemonDetailFallback,
   ListError as PokemonListError,
 } from "./pokemon";
 
@@ -23,9 +24,14 @@ function App() {
       <ErrorBoundary fallback={<PokemonListError />}>
         <Suspense
           maxDuration={250}
-          fallback={<PokemonListFallback />}
+          fallback={<PokemonDetailFallback />}
         >
           <PokemonDetail pokemonId={selectedPokemonId} />
+        </Suspense>
+        <Suspense
+          maxDuration={250}
+          fallback={<PokemonListFallback />}
+        >
           <ul>
             <PokemonList
               renderItem={pokemon => (

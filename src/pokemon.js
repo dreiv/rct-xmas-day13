@@ -46,6 +46,10 @@ export function ListError() {
   return <span>Couldn't catch 'em all</span>;
 }
 
+export function DetailFallback() {
+  return <span>Looking for Pokemon...</span>;
+}
+
 export function ListFallback() {
-  return <span>Looing for Pokemon...</span>;
+  return <span>Looing for Pokemons...</span>;
 }
